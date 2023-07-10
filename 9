@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <windows.h>
+int minSteps(int x, int y) {
+     SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
+    if (x == y) {
+        return 0; 
+    } else if (y - x == 1 || x > y) {
+        return 1;  
+    } else {
+        int step = 2;  
+        int sum = x + 1;  
+
+        while (sum < y) {
+            x = sum; 
+            sum += step;  
+            step++; 
+        }
+
+        return step;
+    }
+}
+
+int main() {
+    int x, y;
+
+    printf("Введіть значення x: ");
+    scanf("%d", &x);
+    printf("Введіть значення y: ");
+    scanf("%d", &y);
+
+    int steps = minSteps(x, y);
+
+    printf("Мінімальна кількість кроків: %d\n", steps);
+
+    return 0;
